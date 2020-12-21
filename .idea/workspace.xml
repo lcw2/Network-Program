@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e9cbebf-56a2-480e-9948-8a9a8f959529" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wsconnection.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wsdata.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wshub.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wsserver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fix_stick.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fix_tcpServer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stick.go" beforeDir="false" afterPath="$PROJECT_DIR$/stick.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

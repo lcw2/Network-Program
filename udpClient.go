@@ -1,8 +1,12 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"fmt"
 	"net"
+	"os"
+	"strings"
 )
 
 func main() {
@@ -15,17 +19,30 @@ func main() {
 		return
 	}
 	defer socket.Close()
-	sendData := []byte("Hello server")
-	_, err = socket.Write(sendData) // 发送数据
-	if err != nil {
-		fmt.Println("发送数据失败，err:", err)
-		return
+
+	for {
+		reader := bufio.NewReader(os.Stdin)
+		inputString,err := reader.ReadString('\n')
+		inputString = strings.Trim(inputString,"\r\n")
+		if err != nil {
+			return
+		}
+		if strings.ToUpper(inputString) == "Q"{
+			fmt.Println("quit")
+			return
+		}
+		inputByte := bytes.NewBuffer([]byte(inputString))
+		_,err = socket.Write(inputByte.Bytes())
+		if err != nil{
+			fmt.Println("fail to send data.")
+			return
+		}
+		data := make([]byte,1024)
+		_,err = socket.Read(data)
+		if err != nil{
+			fmt.Println("fail to receive data.")
+		}
+		fmt.Println("the server send data:",string(data))
+
 	}
-	data := make([]byte, 4096)
-	n, remoteAddr, err := socket.ReadFromUDP(data) // 接收数据
-	if err != nil {
-		fmt.Println("接收数据失败，err:", err)
-		return
-	}
-	fmt.Printf("recv:%v addr:%v count:%v\n", string(data[:n]), remoteAddr, n)
 }
